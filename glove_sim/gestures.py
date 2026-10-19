@@ -11,7 +11,9 @@ same training pipeline will use them - nothing else changes.
 """
 import numpy as np
 
-GESTURES = ["hello", "help", "need_water", "emergency", "need_food"]
+GESTURES = ["hello", "help", "need_water", "emergency", "need_food",
+            "yes", "no", "thank_you", "sorry", "please",
+            "stop", "toilet", "pain", "call_family", "good_ok"]
 
 CHANNELS = ["flex_thumb", "flex_index", "flex_middle", "flex_ring", "flex_pinky",
             "ax", "ay", "az", "gx", "gy", "gz"]
@@ -39,6 +41,26 @@ GESTURE_SPEC = {
     # fingertips pinched together, repeatedly brought to the mouth
     "need_food":  dict(flex=[0.55, 0.50, 0.52, 0.55, 0.58], tilt=[0.35, 0.6, 0.7],
                        motion=[(3, 1.4, 1.5), (1, 0.4, 1.5)]),
+        "yes":         dict(flex=[0.80, 0.92, 0.92, 0.92, 0.90], tilt=[0.5, 0.0, 0.85],
+                        motion=[(3, 1.6, 2.0)]),
+    "no":          dict(flex=[0.60, 0.08, 0.08, 0.92, 0.92], tilt=[0.0, 0.7, 0.7],
+                        motion=[(5, 1.8, 2.0)]),
+    "thank_you":   dict(flex=[0.20, 0.20, 0.20, 0.20, 0.20], tilt=[0.3, 0.9, 0.3],
+                        motion=[(1, 0.5, 1.0), (3, 1.0, 1.0)]),
+    "sorry":       dict(flex=[0.50, 0.90, 0.90, 0.90, 0.90], tilt=[0.0, -0.5, 0.85],
+                        motion=[(0, 0.5, 1.2), (1, 0.5, 1.2), (3, 0.8, 1.2)]),
+    "please":      dict(flex=[0.10, 0.08, 0.08, 0.08, 0.10], tilt=[0.0, -0.6, 0.8],
+                        motion=[(0, 0.5, 1.2), (2, 0.5, 1.2)]),
+    "stop":        dict(flex=[0.05, 0.03, 0.03, 0.03, 0.05], tilt=[0.97, 0.0, 0.2],
+                        motion=[(0, 1.3, 2.0)]),
+    "toilet":      dict(flex=[0.50, 0.85, 0.90, 0.90, 0.90], tilt=[0.2, 0.5, 0.8],
+                        motion=[(5, 1.8, 3.0)]),
+    "pain":        dict(flex=[0.90, 0.05, 0.90, 0.90, 0.90], tilt=[0.1, 0.9, 0.3],
+                        motion=[(4, 2.5, 2.0)]),
+    "call_family": dict(flex=[0.05, 0.90, 0.90, 0.90, 0.05], tilt=[0.7, 0.3, 0.6],
+                        motion=[(1, 0.2, 1.5)]),
+    "good_ok":     dict(flex=[0.00, 0.95, 0.95, 0.95, 0.95], tilt=[-0.8, 0.0, 0.4],
+                        motion=[(2, 0.3, 1.5)]),
 }
 
 
